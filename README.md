@@ -1,4 +1,4 @@
-<h1 align="center">Open Ecommerce</h1>
+<h1 align="center">Micro Ecommerce</h1>
 
 <div align="center">
 
@@ -51,6 +51,11 @@ widely in the industry.
 </a>
 
 ### Infrastructure
+
+## 🖼️ Diagrams
+
+### EventStorming
+<img src="./diagrams/eventstorming.svg" alt="EventStorming"/>
 
 ## ✍️ Authors <a name = "authors"></a>
 
