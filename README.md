@@ -15,66 +15,11 @@
 
 ## 🧐 About <a name = "about"></a>
 
-This
-project
-is
-a
-demo
-ecommerce
-application
-using
-MSA
-and
-various
-tech
-stacks.
+This project is a demo ecommerce application using MSA and various tech stacks.
 
-The
-main
-purpose
-of
-this
-project
-is
-to
-experiment
-with
-various
-tech
-stacks,
-system
-architecture,
-software
-architecture,
-design
-patterns
-and
-to
-learn
-best
-practices
-of
-using
-them.
+The main purpose of this project is to experiment with various tech stacks, system architecture, software architecture, design patterns and to learn best practices of using them.
 
-Tech
-stacks,
-system
-architecture,
-software
-architecture
-chosen
-for
-this
-project
-are
-popular
-or
-used
-widely
-in
-the
-industry.
+Tech stacks, system architecture, software architecture chosen for this project are popular or used widely in the industry.
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
@@ -101,6 +46,18 @@ industry.
 </a>
 <a href="https://www.mend.io/renovate">
     <img src="https://img.shields.io/badge/Renovate-1A1F6C?logo=RenovateBot&logoColor=white" alt="Renovate" />
+</a>
+<a href="https://www.rancher.com">
+    <img src="https://img.shields.io/badge/Rancher-0075A8?logo=Rancher&logoColor=white" alt="Rancher" />
+</a>
+<a href="https://k3s.io">
+    <img src="https://img.shields.io/badge/k3s-FFC61C?logo=k3s&logoColor=white" alt="k3s" />
+</a>
+<a href="https://helm.sh">
+    <img src="https://img.shields.io/badge/Helm-0F1689?logo=helm&logoColor=white" alt="Helm" />
+</a>
+<a href="https://skaffold.dev">
+    <img src="https://img.shields.io/badge/Skaffold-2088FF" alt="Skaffold" />
 </a>
 
 ### Infrastructure
