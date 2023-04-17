@@ -15,13 +15,66 @@
 
 ## 🧐 About <a name = "about"></a>
 
-This project is a demo ecommerce application using MSA and various tech stacks.
+This
+project
+is
+a
+demo
+ecommerce
+application
+using
+MSA
+and
+various
+tech
+stacks.
 
-The main purpose of this project is to experiment with various tech stacks, system architecture,
-software architecture, design patterns and to learn best practices of using them.
+The
+main
+purpose
+of
+this
+project
+is
+to
+experiment
+with
+various
+tech
+stacks,
+system
+architecture,
+software
+architecture,
+design
+patterns
+and
+to
+learn
+best
+practices
+of
+using
+them.
 
-Tech stacks, system architecture, software architecture chosen for this project are popular or used
-widely in the industry.
+Tech
+stacks,
+system
+architecture,
+software
+architecture
+chosen
+for
+this
+project
+are
+popular
+or
+used
+widely
+in
+the
+industry.
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
@@ -55,7 +108,32 @@ widely in the industry.
 ## 🖼️ Diagrams
 
 ### EventStorming
+
 <img src="./diagrams/eventstorming.svg" alt="EventStorming"/>
+
+### Context Map
+
+<img src="./diagrams/contextmap.svg" alt="Context Map"/>
+
+### System Architecture
+
+<img src="./diagrams/system.svg" alt="System Architecture"/>
+
+### Microservices
+
+#### Terms
+
+- SnapE
+
+<img src="./diagrams/terms/snape.svg" alt="Terms SnapE"/>
+
+- Aggregate
+
+<img src="./diagrams/terms/aggregate.svg" alt="Terms Aggregate"/>
+
+- ERD
+
+<img src="./diagrams/terms/erd.svg" alt="Terms ERD"/>
 
 ## ✍️ Authors <a name = "authors"></a>
 
