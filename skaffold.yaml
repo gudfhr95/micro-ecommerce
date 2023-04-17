@@ -1,0 +1,12 @@
+apiVersion: skaffold/v4beta4
+kind: Config
+metadata:
+  name: micro-ecommerce
+deploy:
+  helm:
+    releases:
+      - name: keycloak
+        chartPath: k8s/infra/keycloak
+        valuesFiles:
+          - k8s/infra/keycloak/values.yaml
+        version: 9.7.1
