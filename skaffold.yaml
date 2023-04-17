@@ -5,7 +5,26 @@ metadata:
 deploy:
   helm:
     releases:
+      - name: istio-base
+        namespace: istio-system
+        chartPath: k8s/infra/istio/base
+        valuesFiles:
+          - k8s/infra/istio/base/values.yaml
+        version: 1.17.2
+      - name: istiod
+        namespace: istio-system
+        chartPath: k8s/infra/istio/istiod
+        valuesFiles:
+          - k8s/infra/istio/istiod/values.yaml
+        version: 1.17.2
+      - name: istio-ingress
+        namespace: istio-system
+        chartPath: k8s/infra/istio/gateway
+        valuesFiles:
+          - k8s/infra/istio/gateway/values.yaml
+        version: 1.17.2
       - name: keycloak
+        namespace: keycloak
         chartPath: k8s/infra/keycloak
         valuesFiles:
           - k8s/infra/keycloak/values.yaml
