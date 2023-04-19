@@ -1005,7 +1005,7 @@ keycloak:
     auth:
       postgresPassword: ""
       username: bn_keycloak
-      password: ""
+      password: bn_keycloak
       database: bitnami_keycloak
       existingSecret: ""
     architecture: standalone
