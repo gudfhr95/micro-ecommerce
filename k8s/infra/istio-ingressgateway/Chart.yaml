@@ -1,11 +1,8 @@
 apiVersion: v2
 appVersion: 1.17.2
 dependencies:
-- name: base
+- name: gateway
   repository: https://istio-release.storage.googleapis.com/charts
   version: 1.17.2
-- name: istiod
-  repository: https://istio-release.storage.googleapis.com/charts
-  version: 1.17.2
-name: istio
+name: istio-ingressgateway
 version: 1.17.2

@@ -12,6 +12,13 @@ deploy:
         valuesFiles:
           - k8s/infra/istio/values.yaml
         version: 1.17.2
+      - name: istio-ingressgateway
+        namespace: istio-ingressgateway
+        createNamespace: true
+        chartPath: k8s/infra/istio-ingressgateway
+        valuesFiles:
+          - k8s/infra/istio-ingressgateway/values.yaml
+        version: 1.17.2
       - name: keycloak
         namespace: keycloak
         createNamespace: true
