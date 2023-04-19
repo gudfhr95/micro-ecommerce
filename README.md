@@ -47,6 +47,9 @@ Tech stacks, system architecture, software architecture chosen for this project 
 <a href="https://www.mend.io/renovate">
     <img src="https://img.shields.io/badge/Renovate-1A1F6C?logo=RenovateBot&logoColor=white" alt="Renovate" />
 </a>
+<a href="https://kubernetes.io">
+    <img src="https://img.shields.io/badge/Kubernetes-326CE5?logo=Kubernetes&logoColor=white" alt="Renovate" />
+</a>
 <a href="https://www.rancher.com">
     <img src="https://img.shields.io/badge/Rancher-0075A8?logo=Rancher&logoColor=white" alt="Rancher" />
 </a>
@@ -61,6 +64,42 @@ Tech stacks, system architecture, software architecture chosen for this project 
 </a>
 
 ### Infrastructure
+
+## 🏁 Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+See [deployment](#deployment) for notes on how to deploy the project on a live system.
+
+### Prerequisites
+
+1. Install [Docker](https://docs.docker.com/get-docker/)
+2. Install [Docker Compose](https://docs.docker.com/compose/install/)
+3. Install [Skaffold](https://skaffold.dev/docs/install/)
+4. Install [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+5. Install [Helm](https://helm.sh/docs/intro/install/)
+6. Install [Rancher Desktop](https://rancherdesktop.io/)
+7. Install [pre-commit](https://pre-commit.com/#install)
+
+```
+Give examples
+```
+
+### Installing
+A step by step series of examples that tell you how to get a development env running.
+
+Say what the step will be
+
+```
+Give the example
+```
+
+And repeat
+
+```
+until finished
+```
+
+End with an example of getting some data out of the system or using it for a little demo.
 
 ## 🖼️ Diagrams
 
