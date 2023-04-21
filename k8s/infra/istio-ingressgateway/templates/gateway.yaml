@@ -19,7 +19,7 @@ spec:
         name: https
         protocol: HTTPS
       hosts:
-        - "*.dev.micro-ecommerce.com"
+        - "*.micro-ecommerce.com"
       tls:
         mode: SIMPLE
-        credentialName: selfsigned-certificate-dev
+        credentialName: selfsigned-certificate
