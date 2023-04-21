@@ -7,19 +7,17 @@
 
 </div>
 
----
-
 <p align="center">
-    Demo ecommerce application using MSA and various tech stacks
+    Demo ecommerce application using various tech stacks
 </p>
 
 ## 🧐 About <a name = "about"></a>
 
-This project is a demo ecommerce application using MSA and various tech stacks.
+This project is a demo ecommerce application using MSA(Microservice Architecture) and various tech stacks.
 
-The main purpose of this project is to experiment with various tech stacks, system architecture, software architecture, design patterns and to learn best practices of using them.
+The main purpose of this project is to experiment with various tech stacks, system / software architecture, design patterns and to learn the best practice of using them.
 
-Tech stacks, system architecture, software architecture chosen for this project are popular or used widely in the industry.
+Tech stacks, system / software architecture chosen for this project are popular or used widely in the industry.
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
@@ -47,8 +45,10 @@ Tech stacks, system architecture, software architecture chosen for this project 
 <a href="https://www.mend.io/renovate">
     <img src="https://img.shields.io/badge/Renovate-1A1F6C?logo=RenovateBot&logoColor=white" alt="Renovate" />
 </a>
+
+### Infrastructure
 <a href="https://kubernetes.io">
-    <img src="https://img.shields.io/badge/Kubernetes-326CE5?logo=Kubernetes&logoColor=white" alt="Renovate" />
+    <img src="https://img.shields.io/badge/Kubernetes-326CE5?logo=Kubernetes&logoColor=white" alt="Kubernetes" />
 </a>
 <a href="https://www.rancher.com">
     <img src="https://img.shields.io/badge/Rancher-0075A8?logo=Rancher&logoColor=white" alt="Rancher" />
@@ -59,11 +59,15 @@ Tech stacks, system architecture, software architecture chosen for this project 
 <a href="https://helm.sh">
     <img src="https://img.shields.io/badge/Helm-0F1689?logo=helm&logoColor=white" alt="Helm" />
 </a>
-<a href="https://skaffold.dev">
-    <img src="https://img.shields.io/badge/Skaffold-2088FF" alt="Skaffold" />
+<a href="https://istio.io/latest/">
+    <img src="https://img.shields.io/badge/Istio-466BB0?logo=Istio&logoColor=white" alt="Istio" />
 </a>
-
-### Infrastructure
+<a href="https://cert-manager.io">
+    <img src="https://img.shields.io/badge/Cert--Manager-FEFEFE" alt="Cert-Manager" />
+</a>
+<a href="https://www.keycloak.org">
+    <img src="https://img.shields.io/badge/Keycloak-FEFEFE" alt="Keycloak" />
+</a>
 
 ## 🏁 Getting Started
 
@@ -72,39 +76,80 @@ See [deployment](#deployment) for notes on how to deploy the project on a live s
 
 ### Prerequisites
 
-1. Install [Docker](https://docs.docker.com/get-docker/)
-2. Install [Docker Compose](https://docs.docker.com/compose/install/)
-3. Install [Skaffold](https://skaffold.dev/docs/install/)
-4. Install [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-5. Install [Helm](https://helm.sh/docs/intro/install/)
-6. Install [Rancher Desktop](https://rancherdesktop.io/)
-7. Install [pre-commit](https://pre-commit.com/#install)
-8. Install Cert Manager CRDS
+1. Install [**Rancher Desktop**](https://rancherdesktop.io/)
 
-```bash
-kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.11.1/cert-manager.crds.yaml
-```
+    Rancher Desktop will install and configure the following tools:
+    - [**Helm**](https://helm.sh/)
+    - [**Docker**](https://www.docker.com/)
+    - [**Kubectl**](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
-```
-Give examples
-```
+2. Install [**Skaffold**](https://skaffold.dev/docs/install/)
 
-### Installing
-A step by step series of examples that tell you how to get a development env running.
+3. Install [**pre-commit**](https://pre-commit.com/#install)
 
-Say what the step will be
+### Installing / Running locally
 
-```
-Give the example
-```
+1. Clone this repository
 
-And repeat
+    ```bash
+    git clone https://github.com/gudfhr95/micro-ecommerce
+    cd micro-ecommerce
+    ```
 
-```
-until finished
-```
+2. _(Optional)_ Install **pre-commit** hooks
 
-End with an example of getting some data out of the system or using it for a little demo.
+    ```bash
+    pre-commit install
+    ```
+
+3. Config `/etc/hosts`
+
+    Add the following entries to your `/etc/hosts` file:
+
+    ```bash
+    127.0.0.1 httpbin.micro-ecommerce.com
+    127.0.0.1 keycloak.micro-ecommerce.com
+    ```
+
+4. Install **Cert-Manager CRDs**(Custom Resource Definitions)
+
+    Cert-Manager has a dependency on CRDs that need to be installed onto a Kubernetes cluster before Cert-Manager itself can be installed.
+
+    ```bash
+    kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.11.1/cert-manager.crds.yaml
+    ```
+
+5. Run **Skaffold**
+
+    ```bash
+    skaffold dev
+    ```
+
+    All helm dependencies and charts will be installed automatically by Skaffold.
+
+6. Access to **httpbin**
+
+    ```bash
+    open https://httpbin.micro-ecommerce.com/status/418
+    ```
+
+    Then you will see the following response:
+
+    ```
+    -=[ teapot ]=-
+       _...._
+     .'  _ _ `.
+    | ."` ^ `". _,
+    \_;`"---"`|//
+      |       ;/
+      \_     _/
+        `"""`
+    ```
+
+7. Access to other services
+
+    You can access other services by using the following URLs:
+    - **Keycloak**: https://keycloak.micro-ecommerce.com
 
 ## 🖼️ Diagrams
 
