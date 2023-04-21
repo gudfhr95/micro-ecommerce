@@ -5,6 +5,11 @@ metadata:
 deploy:
   helm:
     releases:
+      - name: cert-manager
+        namespace: cert-manager
+        createNamespace: true
+        chartPath: k8s/infra/cert-manager
+        version: 1.11.1
       - name: istio
         namespace: istio-system
         createNamespace: true
@@ -26,3 +31,6 @@ deploy:
         valuesFiles:
           - k8s/infra/keycloak/values.yaml
         version: 14.2.0
+      - name: httpbin
+        chartPath: k8s/app/httpbin
+        version: 1.0.0
