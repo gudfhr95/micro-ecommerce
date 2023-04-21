@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: selfsigned-certificate-dev
+spec:
+  commonName: "dev.micro-ecommerce.com"
+  dnsNames:
+    - "dev.micro-ecommerce.com"
+  secretName: selfsigned-certificate-dev
+  privateKey:
+    algorithm: ECDSA
+    size: 256
+  issuerRef:
+    name: selfsigned-cluster-issuer-dev
+    kind: ClusterIssuer
+    group: cert-manager.io

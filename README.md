@@ -79,6 +79,11 @@ See [deployment](#deployment) for notes on how to deploy the project on a live s
 5. Install [Helm](https://helm.sh/docs/intro/install/)
 6. Install [Rancher Desktop](https://rancherdesktop.io/)
 7. Install [pre-commit](https://pre-commit.com/#install)
+8. Install Cert Manager CRDS
+
+```bash
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.11.1/cert-manager.crds.yaml
+```
 
 ```
 Give examples
