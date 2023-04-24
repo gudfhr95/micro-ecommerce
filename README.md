@@ -169,17 +169,13 @@ See [deployment](#deployment) for notes on how to deploy the project on a live s
 
 #### Terms
 
-- SnapE
-
-<img src="./diagrams/terms/snape.svg" alt="Terms SnapE"/>
-
 - Aggregate
 
-<img src="./diagrams/terms/aggregate.svg" alt="Terms Aggregate"/>
+    <img src="./diagrams/terms/aggregate.svg" alt="Terms Aggregate"/>
 
 - ERD
 
-<img src="./diagrams/terms/erd.svg" alt="Terms ERD"/>
+    <img src="./diagrams/terms/erd.svg" alt="Terms ERD"/>
 
 ## ✍️ Authors <a name = "authors"></a>
 
