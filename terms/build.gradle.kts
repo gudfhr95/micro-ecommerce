@@ -1,9 +1,3 @@
-plugins {
-    id("org.springframework.boot")
-    id("io.spring.dependency-management")
-    kotlin("plugin.spring")
-}
-
 group = "com.microecommerce.terms"
 version = "0.0.1"
 
