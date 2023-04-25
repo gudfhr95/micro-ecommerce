@@ -36,6 +36,15 @@ Tech stacks, system / software architecture chosen for this project are popular 
 <a href="https://editorconfig.org">
     <img src="https://img.shields.io/badge/EditorConfig-FEFEFE?logo=EditorConfig&logoColor=black" alt="EditorConfig" />
 </a>
+<a href="https://pinterest.github.io/ktlint/">
+    <img src="https://img.shields.io/badge/Ktlint-FEFEFE" alt="Ktlint" />
+</a>
+<a href="https://detekt.dev/">
+    <img src="https://img.shields.io/badge/detekt-FEFEFE" alt="detekt" />
+</a>
+<a href="https://www.sonarsource.com/products/sonarlint/">
+    <img src="https://img.shields.io/badge/SonarLint-CB2029?logo=SonarLint&logoColor=white" alt="SonarLint" />
+</a>
 
 ### CI / CD (Continuous Integration / Continuous Delivery)
 
@@ -45,8 +54,24 @@ Tech stacks, system / software architecture chosen for this project are popular 
 <a href="https://www.mend.io/renovate">
     <img src="https://img.shields.io/badge/Renovate-1A1F6C?logo=RenovateBot&logoColor=white" alt="Renovate" />
 </a>
+<a href="https://gradle.org">
+    <img src="https://img.shields.io/badge/Gradle-02303A?logo=Gradle&logoColor=white" alt="Gradle" />
+</a>
+
+### Testing
+
+<a href="https://www.jacoco.org/jacoco/">
+    <img src="https://img.shields.io/badge/JaCoCo-FEFEFE" alt="JaCoCo" />
+</a>
+<a href="https://kotest.io/">
+    <img src="https://img.shields.io/badge/Kotest-FEFEFE" alt="Kotest" />
+</a>
+<a href="https://mockk.io/">
+    <img src="https://img.shields.io/badge/MockK-FEFEFE" alt="MockK" />
+</a>
 
 ### Infrastructure
+
 <a href="https://kubernetes.io">
     <img src="https://img.shields.io/badge/Kubernetes-326CE5?logo=Kubernetes&logoColor=white" alt="Kubernetes" />
 </a>
@@ -54,10 +79,13 @@ Tech stacks, system / software architecture chosen for this project are popular 
     <img src="https://img.shields.io/badge/Rancher-0075A8?logo=Rancher&logoColor=white" alt="Rancher" />
 </a>
 <a href="https://k3s.io">
-    <img src="https://img.shields.io/badge/k3s-FFC61C?logo=k3s&logoColor=white" alt="k3s" />
+    <img src="https://img.shields.io/badge/k3s-FFC61C?logo=k3s&logoColor=black" alt="k3s" />
 </a>
 <a href="https://helm.sh">
     <img src="https://img.shields.io/badge/Helm-0F1689?logo=helm&logoColor=white" alt="Helm" />
+</a>
+<a href="https://skaffold.dev/">
+    <img src="https://img.shields.io/badge/Skaffold-FEFEFE" alt="Skaffold" />
 </a>
 <a href="https://istio.io/latest/">
     <img src="https://img.shields.io/badge/Istio-466BB0?logo=Istio&logoColor=white" alt="Istio" />
@@ -67,6 +95,15 @@ Tech stacks, system / software architecture chosen for this project are popular 
 </a>
 <a href="https://www.keycloak.org">
     <img src="https://img.shields.io/badge/Keycloak-FEFEFE" alt="Keycloak" />
+</a>
+
+### Backend
+
+<a href="https://kotlinlang.org/">
+    <img src="https://img.shields.io/badge/Kotlin-7F52FF?logo=Kotlin&logoColor=white" alt="Kotlin" />
+</a>
+<a href="https://spring.io/">
+    <img src="https://img.shields.io/badge/Spring-6DB33F?logo=Spring&logoColor=white" alt="Spring" />
 </a>
 
 ## 🏁 Getting Started
