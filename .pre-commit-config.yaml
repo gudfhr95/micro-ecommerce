@@ -14,3 +14,5 @@ repos:
     hooks:
       - id: ktlint
         args: [ --format ]
+      - id: detekt
+        args: [ --config, detekt.yml ]
