@@ -9,3 +9,8 @@ repos:
     hooks:
       - id: conventional-pre-commit
         stages: [ commit-msg ]
+  - repo: https://github.com/dustinsand/pre-commit-jvm
+    rev: v0.8.0
+    hooks:
+      - id: ktlint
+        args: [ --format ]
