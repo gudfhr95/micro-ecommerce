@@ -8,7 +8,7 @@ plugins {
 
     id("org.springframework.boot") version "3.0.6" apply false
     id("io.spring.dependency-management") version "1.1.0" apply false
-    kotlin("plugin.spring") version "1.8.20" apply false
+    kotlin("plugin.spring") version "1.8.21" apply false
 }
 
 group = "com.microecommerce"
