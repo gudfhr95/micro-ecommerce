@@ -1,3 +1,5 @@
 rootProject.name = "micro-ecommerce"
 
-include("terms")
+include("core")
+
+include("terms:terms-domain")

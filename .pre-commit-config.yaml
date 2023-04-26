@@ -9,10 +9,10 @@ repos:
     hooks:
       - id: conventional-pre-commit
         stages: [ commit-msg ]
-  - repo: https://github.com/dustinsand/pre-commit-jvm
-    rev: v0.8.0
+  - repo: https://github.com/jguttman94/pre-commit-gradle
+    rev: v0.3.0
     hooks:
-      - id: ktlint
-        args: [ --format ]
-      - id: detekt
-        args: [ --config, detekt.yml ]
+      - id: gradle-task
+        args: [ '-w', 'ktlintFormat' ]
+      - id: gradle-task
+        args: [ '-w', 'detekt' ]
