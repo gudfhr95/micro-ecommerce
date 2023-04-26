@@ -13,10 +13,18 @@ plugins {
 
 group = "com.microecommerce"
 version = "0.0.1"
-java.sourceCompatibility = JavaVersion.VERSION_17
 
 allprojects {
     apply(plugin = "org.jetbrains.kotlin.jvm")
+
+    java.sourceCompatibility = JavaVersion.VERSION_17
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
     apply(plugin = "io.gitlab.arturbosch.detekt")
     apply(plugin = "jacoco")
@@ -24,10 +32,6 @@ allprojects {
     apply(plugin = "org.springframework.boot")
     apply(plugin = "io.spring.dependency-management")
     apply(plugin = "kotlin-spring")
-
-    repositories {
-        mavenCentral()
-    }
 
     dependencies {
         implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -38,6 +42,7 @@ allprojects {
         testImplementation("io.mockk:mockk:1.13.5")
         testImplementation("com.ninja-squad:springmockk:4.0.2")
     }
+
 
     tasks.withType<KotlinCompile> {
         kotlinOptions {
