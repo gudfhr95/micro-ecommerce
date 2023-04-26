@@ -2,15 +2,14 @@ package com.microecommerce.core.vo
 
 import java.util.*
 
-open class AbstractId(val id: String) {
+open class AbstractId {
+
+    var id: String
+        private set
 
     init {
-        require(id.isNotBlank()) { "Id must not be blank" }
+        this.id = UUID.randomUUID().toString()
     }
-
-    constructor() : this(
-        id = UUID.randomUUID().toString()
-    )
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
