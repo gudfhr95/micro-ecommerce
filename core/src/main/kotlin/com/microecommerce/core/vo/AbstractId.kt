@@ -4,12 +4,7 @@ import java.util.*
 
 open class AbstractId {
 
-    var id: String
-        private set
-
-    init {
-        this.id = UUID.randomUUID().toString()
-    }
+    val id: String = UUID.randomUUID().toString()
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
