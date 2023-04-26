@@ -43,7 +43,6 @@ subprojects {
         testImplementation("com.ninja-squad:springmockk:4.0.2")
     }
 
-
     tasks.withType<KotlinCompile> {
         kotlinOptions {
             freeCompilerArgs = listOf("-Xjsr305=strict")
