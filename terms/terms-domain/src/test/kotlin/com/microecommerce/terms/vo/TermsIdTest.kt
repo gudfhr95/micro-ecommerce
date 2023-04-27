@@ -1,7 +1,5 @@
-package com.mircoecommerce.core.vo
+package com.microecommerce.terms.vo
 
-import com.microecommerce.core.vo.AbstractId
-import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.ShouldSpec
 import io.kotest.matchers.equals.shouldBeEqual
 import io.kotest.matchers.equals.shouldNotBeEqual
@@ -11,28 +9,22 @@ import io.mockk.every
 import io.mockk.mockkStatic
 import java.util.*
 
-class AbstractIdTest : ShouldSpec({
+class TermsIdTest : ShouldSpec({
 
     mockkStatic(UUID::class)
 
-    afterAny {
+    afterTest {
         clearAllMocks()
     }
 
-    context("Id") {
+    context("TermsId") {
         context("constructor") {
             should("create id") {
                 every { UUID.randomUUID() } returns UUID(0, 0)
 
-                val id = AbstractId()
+                val id = TermsId()
 
                 id.id shouldBe "00000000-0000-0000-0000-000000000000"
-            }
-
-            should("throw exception when id is blank") {
-                shouldThrow<IllegalArgumentException> {
-                    AbstractId("")
-                }
             }
         }
 
@@ -40,15 +32,15 @@ class AbstractIdTest : ShouldSpec({
             should("return true when ids are equal") {
                 every { UUID.randomUUID() } returns UUID(0, 0)
 
-                val id1 = AbstractId()
-                val id2 = AbstractId()
+                val id1 = TermsId()
+                val id2 = TermsId()
 
                 id1 shouldBeEqual id2
             }
 
             should("return false when ids are not equal") {
-                val id1 = AbstractId()
-                val id2 = AbstractId()
+                val id1 = TermsId()
+                val id2 = TermsId()
 
                 id1 shouldNotBeEqual id2
             }
