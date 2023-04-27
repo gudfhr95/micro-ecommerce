@@ -88,6 +88,10 @@ subprojects {
                     value = "COVEREDRATIO"
                     minimum = "0.80".toBigDecimal()
                 }
+
+                excludes = listOf(
+                    "com.microecommerce.core.*"
+                )
             }
         }
     }

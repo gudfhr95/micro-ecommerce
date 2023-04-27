@@ -7,7 +7,7 @@ import io.kotest.matchers.shouldBe
 class TermsTest : ShouldSpec({
 
     context("Terms") {
-        should("Be created") {
+        should("be created") {
             val terms = Terms("title", "content")
 
             terms.title shouldBe "title"
@@ -15,7 +15,7 @@ class TermsTest : ShouldSpec({
         }
 
         context("title") {
-            should("Not be blank") {
+            should("not be blank") {
                 shouldThrow<IllegalArgumentException> {
                     Terms("", "content")
                 }
@@ -23,7 +23,7 @@ class TermsTest : ShouldSpec({
         }
 
         context("content") {
-            should("Not be blank") {
+            should("not be blank") {
                 shouldThrow<IllegalArgumentException> {
                     Terms("title", "")
                 }
