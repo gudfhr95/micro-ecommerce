@@ -23,4 +23,12 @@ class Terms : Entity {
         this.title = title
         this.content = content
     }
+
+    fun update(
+        title: String? = null,
+        content: String? = null
+    ) {
+        title?.let { this.title = it }
+        content?.let { this.content = content }
+    }
 }
