@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 plugins {
     kotlin("jvm") version "1.8.20"
@@ -94,5 +95,13 @@ subprojects {
                 )
             }
         }
+    }
+
+    tasks.named<BootJar>("bootJar") {
+        enabled = false
+    }
+
+    tasks.named<Jar>("jar") {
+        enabled = false
     }
 }
