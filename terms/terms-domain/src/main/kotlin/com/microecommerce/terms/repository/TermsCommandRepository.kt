@@ -8,4 +8,6 @@ interface TermsCommandRepository {
     fun save(terms: Terms): Terms
 
     fun findByTermsId(termsId: TermsId): Terms?
+
+    fun deleteByTermsId(termsId: TermsId)
 }

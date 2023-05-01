@@ -1,6 +1,7 @@
 package com.microecommerce.terms.application
 
 import com.microecommerce.terms.command.CreateTermsCommand
+import com.microecommerce.terms.command.DeleteTermsCommand
 import com.microecommerce.terms.command.UpdateTermsCommand
 import com.microecommerce.terms.entity.Terms
 import com.microecommerce.terms.repository.TermsCommandRepository
@@ -8,9 +9,12 @@ import com.microecommerce.terms.vo.TermsId
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.ShouldSpec
 import io.kotest.matchers.shouldBe
+import io.mockk.Runs
 import io.mockk.clearAllMocks
 import io.mockk.every
+import io.mockk.just
 import io.mockk.mockk
+import io.mockk.verify
 
 class TermsCommandApplicationServiceTest : ShouldSpec({
 
@@ -137,6 +141,19 @@ class TermsCommandApplicationServiceTest : ShouldSpec({
             shouldThrow<IllegalArgumentException> {
                 sut.updateTerms(command)
             }
+        }
+    }
+
+    context("deleteTerms") {
+        should("delete terms") {
+            val command = DeleteTermsCommand(
+                termsId = terms.termsId
+            )
+            every { termsCommandRepository.deleteByTermsId(command.termsId) } just Runs
+
+            sut.deleteTerms(command)
+
+            verify(exactly = 1) { termsCommandRepository.deleteByTermsId(command.termsId) }
         }
     }
 })

@@ -1,6 +1,7 @@
 package com.microecommerce.terms.application
 
 import com.microecommerce.terms.command.CreateTermsCommand
+import com.microecommerce.terms.command.DeleteTermsCommand
 import com.microecommerce.terms.command.UpdateTermsCommand
 import com.microecommerce.terms.entity.Terms
 import com.microecommerce.terms.repository.TermsCommandRepository
@@ -37,5 +38,11 @@ class TermsCommandApplicationService(
         )
 
         return termsCommandRepository.save(terms)
+    }
+
+    fun deleteTerms(
+        command: DeleteTermsCommand
+    ) {
+        termsCommandRepository.deleteByTermsId(command.termsId)
     }
 }
