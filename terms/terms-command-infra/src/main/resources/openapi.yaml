@@ -1,0 +1,52 @@
+openapi: 3.0.3
+info:
+  title: Terms Command API
+  description: Terms Command API
+  version: 1.0.0
+paths:
+  /terms:
+    post:
+      summary: Create Terms
+      description: Create Terms
+      tags:
+        - TermsCommand
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTermsRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TermsResponse'
+
+components:
+  schemas:
+    TermsResponse:
+      type: object
+      properties:
+        termsId:
+          type: string
+          description: Terms Id
+        title:
+          type: string
+          description: Terms title
+        content:
+          type: string
+          description: Terms content
+    CreateTermsRequest:
+      type: object
+      required:
+        - title
+        - content
+      properties:
+        title:
+          type: string
+          description: Terms title
+        content:
+          type: string
+          description: Terms content
