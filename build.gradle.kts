@@ -59,16 +59,16 @@ subprojects {
     }
 
     detekt {
-        config = files("$rootDir/detekt.yml")
+        config.setFrom(files("$rootDir/detekt.yml"))
         buildUponDefaultConfig = true
         allRules = false
     }
 
     tasks.jacocoTestReport {
         reports {
-            html.isEnabled = true
-            xml.isEnabled = false
-            csv.isEnabled = false
+            html.required.set(true)
+            xml.required.set(false)
+            csv.required.set(false)
         }
 
         finalizedBy("jacocoTestCoverageVerification")

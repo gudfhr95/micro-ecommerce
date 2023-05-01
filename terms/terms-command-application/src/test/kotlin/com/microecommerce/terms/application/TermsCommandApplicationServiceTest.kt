@@ -40,9 +40,9 @@ class TermsCommandApplicationServiceTest : ShouldSpec({
             )
             every { termsCommandRepository.save(any()) } returnsArgument 0
 
-            val terms = sut.createTerms(command)
+            val createdTerms = sut.createTerms(command)
 
-            with(terms) {
+            with(createdTerms) {
                 title shouldBe "title"
                 content shouldBe "content"
             }
