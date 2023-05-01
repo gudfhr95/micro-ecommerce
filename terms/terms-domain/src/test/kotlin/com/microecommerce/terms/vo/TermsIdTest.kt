@@ -13,7 +13,7 @@ class TermsIdTest : ShouldSpec({
 
     mockkStatic(UUID::class)
 
-    afterTest {
+    beforeTest {
         clearAllMocks()
     }
 
