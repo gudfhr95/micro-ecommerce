@@ -1,10 +1,10 @@
 annotations:
   category: DeveloperTools
 apiVersion: v2
-appVersion: 21.0.2
+appVersion: 21.1.1
 dependencies:
-- name: keycloak
-  repository: https://charts.bitnami.com/bitnami
-  version: 14.4.1
+  - name: keycloak
+    repository: https://charts.bitnami.com/bitnami
+    version: 14.4.1
 name: keycloak
-version: 14.2.0
+version: 14.4.1
