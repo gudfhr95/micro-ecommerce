@@ -1,0 +1,10 @@
+annotations:
+  category: Database
+apiVersion: v2
+appVersion: 8.0.33
+dependencies:
+  - name: mysql
+    repository: oci://registry-1.docker.io/bitnamicharts
+    version: 9.8.2
+name: mysql
+version: 9.8.2

@@ -30,7 +30,20 @@ deploy:
         chartPath: k8s/infra/keycloak
         valuesFiles:
           - k8s/infra/keycloak/values.yaml
-        version: 14.2.0
+        version: 14.4.1
+      - name: mysql
+        namespace: mysql
+        createNamespace: true
+        chartPath: k8s/infra/mysql
+        valuesFiles:
+          - k8s/infra/mysql/values.yaml
+        version: 9.8.2
       - name: httpbin
         chartPath: k8s/app/httpbin
         version: 1.0.0
+portForward:
+  - resourceType: service
+    resourceName: mysql
+    namespace: mysql
+    port: 3306
+    localPort: 3306
