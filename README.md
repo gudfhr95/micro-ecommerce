@@ -96,6 +96,9 @@ Tech stacks, system / software architecture chosen for this project are popular 
 <a href="https://www.keycloak.org">
     <img src="https://img.shields.io/badge/Keycloak-FEFEFE" alt="Keycloak" />
 </a>
+<a href="https://www.mysql.com/">
+    <img src="https://img.shields.io/badge/MySQL-4479A1?logo=MySQL&logoColor=white" alt="MySQL" />
+</a>
 
 ### Backend
 
@@ -187,6 +190,7 @@ See [deployment](#deployment) for notes on how to deploy the project on a live s
 
     You can access other services by using the following URLs:
     - **Keycloak**: https://keycloak.micro-ecommerce.com
+    - **MySQL**: http://localhost:3306 (port forwarding)
 
 ## 🖼️ Diagrams
 
