@@ -117,14 +117,14 @@ mysql:
     ## @param auth.database Name for a custom database to create
     ## ref: https://github.com/bitnami/containers/tree/main/bitnami/mysql#creating-a-database-on-first-run
     ##
-    database: "my_database"
+    database: "micro_ecommerce"
     ## @param auth.username Name for a custom user to create
     ## ref: https://github.com/bitnami/containers/tree/main/bitnami/mysql#creating-a-database-user-on-first-run
     ##
-    username: ""
+    username: "dev"
     ## @param auth.password Password for the new user. Ignored if existing secret is provided
     ##
-    password: ""
+    password: "password"
     ## @param auth.replicationUser MySQL replication user
     ## ref: https://github.com/bitnami/containers/tree/main/bitnami/mysql#setting-up-a-replication-cluster
     ##
@@ -158,7 +158,7 @@ mysql:
   initdbScripts: { }
   ## @param initdbScriptsConfigMap ConfigMap with the initdb scripts (Note: Overrides `initdbScripts`)
   ##
-  initdbScriptsConfigMap: ""
+  initdbScriptsConfigMap: mysql-initdb
 
   ## @section MySQL Primary parameters
   ##
