@@ -2,5 +2,5 @@ group = "com.microecommerce.terms.application"
 version = "0.0.1"
 
 dependencies {
-    implementation(project(":terms:terms-domain"))
+    api(project(":terms:terms-domain"))
 }
