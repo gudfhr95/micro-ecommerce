@@ -6,7 +6,7 @@ dependencies {
 }
 
 openApiGenerate {
-    apiPackage.set("com.microecommerce.terms.input.rest")
-    invokerPackage.set("com.microecommerce.terms.input.rest.invoker")
-    modelPackage.set("com.microecommerce.terms.input.rest.model")
+    apiPackage.set("com.microecommerce.terms.openapi.api")
+    invokerPackage.set("com.microecommerce.terms.openapi.invoker")
+    modelPackage.set("com.microecommerce.terms.openapi.model")
 }
