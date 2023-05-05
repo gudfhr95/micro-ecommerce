@@ -107,7 +107,7 @@ subprojects {
 
         openApiGenerate {
             generatorName.set("kotlin-spring")
-            inputSpec.set("$projectDir/src/main/resources/openapi.yaml")
+            inputSpec.set("$projectDir/openapi.yaml")
             outputDir.set("$buildDir/generated/openapi")
             configOptions.putAll(
                 mapOf(
@@ -165,7 +165,8 @@ subprojects {
                 }
 
                 excludes = listOf(
-                    "com.microecommerce.core.*"
+                    "com.microecommerce.core.*",
+                    "*.openapi.*"
                 )
             }
         }
