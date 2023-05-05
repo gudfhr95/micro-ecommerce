@@ -2,15 +2,15 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 plugins {
-    kotlin("jvm") version "1.8.21"
-    id("org.jlleitschuh.gradle.ktlint") version "11.3.2"
-    id("io.gitlab.arturbosch.detekt").version("1.23.0-RC3")
+    kotlin("jvm")
+    id("org.jlleitschuh.gradle.ktlint")
+    id("io.gitlab.arturbosch.detekt")
     id("jacoco")
 
-    id("org.springframework.boot") version "3.0.6" apply false
-    id("io.spring.dependency-management") version "1.1.0" apply false
-    kotlin("plugin.spring") version "1.8.21" apply false
-    id("org.openapi.generator") version "6.5.0"
+    id("org.springframework.boot") apply false
+    id("io.spring.dependency-management") apply false
+    kotlin("plugin.spring") apply false
+    id("org.openapi.generator")
 }
 
 group = "com.microecommerce"
@@ -62,14 +62,17 @@ allprojects {
 }
 
 subprojects {
+    val junitVersion: String by project
+    val mockkVersion: String by project
+
     apply(plugin = "jacoco")
 
     dependencies {
         implementation("org.jetbrains.kotlin:kotlin-reflect")
         implementation("org.springframework.boot:spring-boot-starter")
 
-        testImplementation("io.kotest:kotest-runner-junit5:5.6.1")
-        testImplementation("io.mockk:mockk:1.13.5")
+        testImplementation("io.kotest:kotest-runner-junit5:$junitVersion")
+        testImplementation("io.mockk:mockk:$mockkVersion")
     }
 
     if (project.name.endsWith("core") || project.name.endsWith("domain")) {
@@ -89,6 +92,8 @@ subprojects {
     }
 
     if (project.name.endsWith("infra")) {
+        val springdocOpenapiVersion: String by project
+
         apply(plugin = "org.openapi.generator")
 
         sourceSets {
@@ -102,7 +107,7 @@ subprojects {
         dependencies {
             implementation("org.springframework.boot:spring-boot-starter-validation")
             implementation("org.springframework.boot:spring-boot-starter-web")
-            implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0")
+            implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:$springdocOpenapiVersion")
         }
 
         openApiGenerate {

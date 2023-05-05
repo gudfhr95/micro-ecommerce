@@ -136,6 +136,9 @@ complexity:
     ignoreDefaultParameters: false
     ignoreDataClasses: true
     ignoreAnnotatedParameter: [ ]
+    excludes:
+      - '**/entity/**'
+      - '**/dao/**'
   MethodOverloading:
     active: false
     threshold: 6

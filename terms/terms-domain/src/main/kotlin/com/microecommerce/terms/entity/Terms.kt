@@ -1,25 +1,35 @@
 package com.microecommerce.terms.entity
 
-import com.microecommerce.core.entity.Entity
+import com.microecommerce.core.entity.AbstractEntity
 import com.microecommerce.terms.vo.TermsId
+import java.time.LocalDateTime
 
-class Terms : Entity {
+class Terms(
+    id: Long? = null,
+    version: Long? = null,
+    val termsId: TermsId = TermsId(),
+    title: String,
+    content: String,
+    createdAt: LocalDateTime? = null,
+    createdBy: String? = null,
+    updatedAt: LocalDateTime? = null,
+    updatedBy: String? = null
+) : AbstractEntity(id, version, createdAt, createdBy, updatedAt, updatedBy) {
 
-    val termsId = TermsId()
-    var title: String
+    var title: String = title
         private set(value) {
             require(value.isNotBlank()) { "Title cannot be blank" }
 
             field = value
         }
-    var content: String
+    var content: String = content
         private set(value) {
             require(value.isNotBlank()) { "Content cannot be blank" }
 
             field = value
         }
 
-    constructor(title: String, content: String) {
+    init {
         this.title = title
         this.content = content
     }
