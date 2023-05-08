@@ -5,6 +5,7 @@ import com.microecommerce.terms.command.DeleteTermsCommand
 import com.microecommerce.terms.command.UpdateTermsCommand
 import com.microecommerce.terms.entity.Terms
 import com.microecommerce.terms.repository.TermsCommandRepository
+import com.microecommerce.terms.service.TermsCommandService
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.ShouldSpec
 import io.kotest.matchers.shouldBe
@@ -18,7 +19,11 @@ import io.mockk.verify
 class TermsCommandApplicationServiceTest : ShouldSpec({
 
     val termsCommandRepository = mockk<TermsCommandRepository>()
-    val sut = TermsCommandApplicationService(termsCommandRepository)
+    val termsCommandService = TermsCommandService(termsCommandRepository)
+    val sut = TermsCommandApplicationService(
+        termsCommandService,
+        termsCommandRepository
+    )
 
     lateinit var terms: Terms
 
@@ -34,12 +39,13 @@ class TermsCommandApplicationServiceTest : ShouldSpec({
 
     context("createTerms") {
         should("create terms") {
+            every { termsCommandRepository.existsByType(any()) } returns false
+            every { termsCommandRepository.save(any()) } returnsArgument 0
             val command = CreateTermsCommand(
                 type = "type",
                 title = "title",
                 content = "content"
             )
-            every { termsCommandRepository.save(any()) } returnsArgument 0
 
             val createdTerms = sut.createTerms(command)
 
@@ -50,7 +56,21 @@ class TermsCommandApplicationServiceTest : ShouldSpec({
             }
         }
 
+        should("throw when terms already exists") {
+            every { termsCommandRepository.existsByType(any()) } returns true
+            val command = CreateTermsCommand(
+                type = "type",
+                title = "title",
+                content = "content"
+            )
+
+            shouldThrow<IllegalStateException> {
+                sut.createTerms(command)
+            }
+        }
+
         should("throw when type is blank") {
+            every { termsCommandRepository.existsByType(any()) } returns false
             val command = CreateTermsCommand(
                 type = "",
                 title = "title",
@@ -63,6 +83,7 @@ class TermsCommandApplicationServiceTest : ShouldSpec({
         }
 
         should("throw when title is blank") {
+            every { termsCommandRepository.existsByType(any()) } returns false
             val command = CreateTermsCommand(
                 type = "type",
                 title = "",
@@ -75,6 +96,7 @@ class TermsCommandApplicationServiceTest : ShouldSpec({
         }
 
         should("throw when content is blank") {
+            every { termsCommandRepository.existsByType(any()) } returns false
             val command = CreateTermsCommand(
                 type = "type",
                 title = "title",

@@ -1,4 +1,4 @@
-package com.microecommerce.core.vo
+package com.microecommerce.core.domain.vo
 
 import java.util.*
 
