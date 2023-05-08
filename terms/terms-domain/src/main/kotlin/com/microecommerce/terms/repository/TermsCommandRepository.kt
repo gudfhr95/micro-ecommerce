@@ -1,7 +1,6 @@
 package com.microecommerce.terms.repository
 
 import com.microecommerce.terms.entity.Terms
-import com.microecommerce.terms.vo.TermsId
 
 interface TermsCommandRepository {
 
@@ -9,5 +8,5 @@ interface TermsCommandRepository {
 
     fun findByType(type: String): Terms?
 
-    fun deleteByTermsId(termsId: TermsId)
+    fun deleteByType(type: String)
 }

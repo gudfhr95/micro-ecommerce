@@ -3,7 +3,6 @@ package com.microecommerce.terms.output.repository
 import com.microecommerce.terms.entity.Terms
 import com.microecommerce.terms.output.repository.mapper.TermsDaoMapper
 import com.microecommerce.terms.repository.TermsCommandRepository
-import com.microecommerce.terms.vo.TermsId
 import org.springframework.stereotype.Repository
 
 @Repository
@@ -25,7 +24,12 @@ class TermsCommandRepositoryAdapter(
         return termsDao?.let { TermsDaoMapper.toEntity(it) }
     }
 
-    override fun deleteByTermsId(termsId: TermsId) {
-        TODO("Not yet implemented")
+    override fun deleteByType(type: String) {
+        val termsDao = termsCommandJdbcRepository.findByType(type)
+
+        termsDao?.run {
+            this.delete()
+            termsCommandJdbcRepository.save(this)
+        }
     }
 }
