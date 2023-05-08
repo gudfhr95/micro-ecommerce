@@ -1,6 +1,7 @@
 package com.microecommerce.terms.input.rest.mapper
 
 import com.microecommerce.terms.command.CreateTermsCommand
+import com.microecommerce.terms.command.DeleteTermsCommand
 import com.microecommerce.terms.command.UpdateTermsCommand
 import com.microecommerce.terms.openapi.model.CreateTermsRequest
 import com.microecommerce.terms.openapi.model.UpdateTermsRequest
@@ -21,4 +22,6 @@ object TermsRequestMapper {
         title = updateTermsRequest.title,
         content = updateTermsRequest.content
     )
+
+    fun toCommand(type: String) = DeleteTermsCommand(type)
 }

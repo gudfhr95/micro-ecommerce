@@ -35,6 +35,6 @@ class TermsCommandApplicationService(
     }
 
     fun deleteTerms(command: DeleteTermsCommand) {
-        termsCommandRepository.deleteByTermsId(command.termsId)
+        termsCommandRepository.deleteByType(command.type)
     }
 }

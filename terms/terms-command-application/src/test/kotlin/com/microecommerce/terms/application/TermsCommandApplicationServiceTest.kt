@@ -162,14 +162,12 @@ class TermsCommandApplicationServiceTest : ShouldSpec({
 
     context("deleteTerms") {
         should("delete terms") {
-            val command = DeleteTermsCommand(
-                termsId = terms.termsId
-            )
-            every { termsCommandRepository.deleteByTermsId(command.termsId) } just Runs
+            val command = DeleteTermsCommand("type")
+            every { termsCommandRepository.deleteByType(terms.type) } just Runs
 
             sut.deleteTerms(command)
 
-            verify(exactly = 1) { termsCommandRepository.deleteByTermsId(command.termsId) }
+            verify(exactly = 1) { termsCommandRepository.deleteByType(command.type) }
         }
     }
 })

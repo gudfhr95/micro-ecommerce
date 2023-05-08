@@ -39,4 +39,8 @@ open class AbstractJdbcDao(
 
     var updatedBy: String = updatedBy ?: "system"
         private set
+
+    fun delete() {
+        this.isDeleted = true
+    }
 }

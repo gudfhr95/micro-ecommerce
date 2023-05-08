@@ -7,7 +7,7 @@ import io.kotest.matchers.shouldBe
 
 class TermsRequestMapperTest : ShouldSpec({
 
-    should("map command from request") {
+    should("map CreateTermsCommand from request") {
         val request = CreateTermsRequest(
             type = "type",
             title = "title",
@@ -21,7 +21,7 @@ class TermsRequestMapperTest : ShouldSpec({
         command.content shouldBe "content"
     }
 
-    should("map command from request and type") {
+    should("map UpdateTermsCommand from request") {
         val request = UpdateTermsRequest(
             title = "title",
             content = "content"
@@ -32,5 +32,11 @@ class TermsRequestMapperTest : ShouldSpec({
         command.type shouldBe "type"
         command.title shouldBe "title"
         command.content shouldBe "content"
+    }
+
+    should("map DeleteTermsCommand from request") {
+        val command = TermsRequestMapper.toCommand("type")
+
+        command.type shouldBe "type"
     }
 })

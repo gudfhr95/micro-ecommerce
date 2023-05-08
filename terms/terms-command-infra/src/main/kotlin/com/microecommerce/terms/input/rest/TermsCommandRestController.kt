@@ -37,4 +37,12 @@ class TermsCommandRestController(
             TermsResponseMapper.fromEntity(terms)
         )
     }
+
+    override fun termsTypeDelete(type: String): ResponseEntity<Unit> {
+        termsCommandApplicationService.deleteTerms(
+            TermsRequestMapper.toCommand(type)
+        )
+
+        return ResponseEntity.noContent().build()
+    }
 }

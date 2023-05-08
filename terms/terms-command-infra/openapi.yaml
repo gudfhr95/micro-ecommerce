@@ -23,6 +23,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TermsResponse'
+
   /terms/{type}:
     patch:
       summary: Update Terms
@@ -48,6 +49,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TermsResponse'
+    delete:
+      summary: Delete Terms
+      description: Delete Terms
+      tags:
+        - TermsCommand
+      parameters:
+        - name: type
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No Content
 
 components:
   schemas:
