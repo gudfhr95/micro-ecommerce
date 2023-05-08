@@ -7,7 +7,7 @@ interface TermsCommandRepository {
 
     fun save(terms: Terms): Terms
 
-    fun findByTermsId(termsId: TermsId): Terms?
+    fun findByType(type: String): Terms?
 
     fun deleteByTermsId(termsId: TermsId)
 }

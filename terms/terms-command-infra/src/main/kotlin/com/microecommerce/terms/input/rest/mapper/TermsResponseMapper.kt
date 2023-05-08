@@ -7,6 +7,7 @@ object TermsResponseMapper {
 
     fun fromEntity(terms: Terms) = TermsResponse(
         termsId = terms.termsId.id,
+        type = terms.type,
         title = terms.title,
         content = terms.content
     )

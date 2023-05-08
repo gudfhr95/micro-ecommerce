@@ -5,6 +5,7 @@ import java.time.LocalDateTime
 open class AbstractEntity(
     id: Long? = null,
     version: Long? = null,
+    isDeleted: Boolean? = null,
     createdAt: LocalDateTime? = null,
     createdBy: String? = null,
     updatedAt: LocalDateTime? = null,
@@ -17,7 +18,7 @@ open class AbstractEntity(
     var version: Long = version ?: 0
         private set
 
-    var isDeleted: Boolean = false
+    var isDeleted: Boolean = isDeleted ?: false
         private set
 
     var createdAt: LocalDateTime = createdAt ?: LocalDateTime.now()

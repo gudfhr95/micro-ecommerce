@@ -10,6 +10,7 @@ class TermsResponseMapperTest : ShouldSpec({
     should("map response from terms") {
         val terms = Terms(
             termsId = TermsId("1"),
+            type = "type",
             title = "title",
             content = "content"
         )
@@ -17,6 +18,7 @@ class TermsResponseMapperTest : ShouldSpec({
         val response = TermsResponseMapper.fromEntity(terms)
 
         response.termsId shouldBe "1"
+        response.type shouldBe "type"
         response.title shouldBe "title"
         response.content shouldBe "content"
     }

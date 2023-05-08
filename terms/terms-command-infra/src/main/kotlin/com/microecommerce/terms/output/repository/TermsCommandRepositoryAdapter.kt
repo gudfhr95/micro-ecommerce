@@ -19,8 +19,10 @@ class TermsCommandRepositoryAdapter(
         return TermsDaoMapper.toEntity(termsDao)
     }
 
-    override fun findByTermsId(termsId: TermsId): Terms? {
-        TODO("Not yet implemented")
+    override fun findByType(type: String): Terms? {
+        val termsDao = termsCommandJdbcRepository.findByType(type)
+
+        return termsDao?.let { TermsDaoMapper.toEntity(it) }
     }
 
     override fun deleteByTermsId(termsId: TermsId) {

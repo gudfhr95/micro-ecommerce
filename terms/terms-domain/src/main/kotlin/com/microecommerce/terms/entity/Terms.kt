@@ -8,13 +8,22 @@ class Terms(
     id: Long? = null,
     version: Long? = null,
     val termsId: TermsId = TermsId(),
+    type: String,
     title: String,
     content: String,
+    isDeleted: Boolean? = null,
     createdAt: LocalDateTime? = null,
     createdBy: String? = null,
     updatedAt: LocalDateTime? = null,
     updatedBy: String? = null
-) : AbstractEntity(id, version, createdAt, createdBy, updatedAt, updatedBy) {
+) : AbstractEntity(id, version, isDeleted, createdAt, createdBy, updatedAt, updatedBy) {
+
+    var type: String = type
+        private set(value) {
+            require(value.isNotBlank()) { "Type cannot be blank" }
+
+            field = value
+        }
 
     var title: String = title
         private set(value) {
@@ -30,6 +39,7 @@ class Terms(
         }
 
     init {
+        this.type = type
         this.title = title
         this.content = content
     }

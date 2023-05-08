@@ -82,10 +82,6 @@ subprojects {
     }
 
     if (project.name.endsWith("application")) {
-        dependencies {
-            implementation("org.springframework.boot:spring-boot-starter-validation")
-        }
-
         tasks.named<Jar>("jar") {
             enabled = true
         }

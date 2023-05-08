@@ -9,6 +9,7 @@ class TermsDao(
     id: Long? = null,
     version: Long?,
     val termsId: String,
+    val type: String,
     val title: String,
     val content: String,
     createdAt: LocalDateTime? = null,

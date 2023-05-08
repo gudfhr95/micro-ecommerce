@@ -15,6 +15,7 @@ class TermsDaoMapperTest : ShouldSpec({
         val dao = TermsDao(
             id = 1,
             termsId = "1",
+            type = "type",
             title = "title",
             content = "content",
             version = 1,
@@ -30,6 +31,7 @@ class TermsDaoMapperTest : ShouldSpec({
             entity.id shouldBe 1
             entity.version shouldBe 1
             entity.termsId.id shouldBe "1"
+            entity.type shouldBe "type"
             entity.title shouldBe "title"
             entity.content shouldBe "content"
             entity.createdAt shouldBe now
@@ -43,6 +45,7 @@ class TermsDaoMapperTest : ShouldSpec({
         val entity = Terms(
             id = 1,
             termsId = TermsId("1"),
+            type = "type",
             title = "title",
             content = "content",
             version = 1,
@@ -58,6 +61,7 @@ class TermsDaoMapperTest : ShouldSpec({
             dao.id shouldBe 1
             dao.version shouldBe 1
             dao.termsId shouldBe "1"
+            dao.type shouldBe "type"
             dao.title shouldBe "title"
             dao.content shouldBe "content"
             dao.createdAt shouldBe now
