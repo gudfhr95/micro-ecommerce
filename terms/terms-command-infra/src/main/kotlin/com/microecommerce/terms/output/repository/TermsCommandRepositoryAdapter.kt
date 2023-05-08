@@ -24,6 +24,10 @@ class TermsCommandRepositoryAdapter(
         return termsDao?.let { TermsDaoMapper.toEntity(it) }
     }
 
+    override fun existsByType(type: String): Boolean {
+        return termsCommandJdbcRepository.existsByType(type)
+    }
+
     override fun deleteByType(type: String) {
         val termsDao = termsCommandJdbcRepository.findByType(type)
 

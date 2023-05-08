@@ -1,4 +1,4 @@
-package com.microecommerce.core.vo
+package com.microecommerce.core.domain.vo
 
 import io.kotest.core.spec.style.ShouldSpec
 import io.kotest.matchers.equals.shouldBeEqual

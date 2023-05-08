@@ -1,4 +1,4 @@
-package com.microecommerce.core.dao
+package com.microecommerce.core.output.repository.dao
 
 import io.kotest.core.spec.style.ShouldSpec
 import io.kotest.matchers.shouldBe

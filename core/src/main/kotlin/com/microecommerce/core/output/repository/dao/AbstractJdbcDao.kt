@@ -1,4 +1,4 @@
-package com.microecommerce.core.dao
+package com.microecommerce.core.output.repository.dao
 
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.Id

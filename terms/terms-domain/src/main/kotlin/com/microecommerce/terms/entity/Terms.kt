@@ -1,6 +1,6 @@
 package com.microecommerce.terms.entity
 
-import com.microecommerce.core.entity.AbstractEntity
+import com.microecommerce.core.domain.entity.AbstractEntity
 import com.microecommerce.terms.vo.TermsId
 import java.time.LocalDateTime
 

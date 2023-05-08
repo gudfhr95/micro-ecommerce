@@ -8,5 +8,7 @@ interface TermsCommandRepository {
 
     fun findByType(type: String): Terms?
 
+    fun existsByType(type: String): Boolean
+
     fun deleteByType(type: String)
 }

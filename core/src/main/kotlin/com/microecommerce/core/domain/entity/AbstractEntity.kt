@@ -1,4 +1,4 @@
-package com.microecommerce.core.entity
+package com.microecommerce.core.domain.entity
 
 import java.time.LocalDateTime
 

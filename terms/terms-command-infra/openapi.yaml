@@ -23,6 +23,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TermsResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
 
   /terms/{type}:
     patch:
@@ -81,6 +87,25 @@ components:
         content:
           type: string
           description: Terms content
+    ErrorResponse:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+          description: Error timestamp
+        status:
+          type: integer
+          description: Error status
+        error:
+          type: string
+          description: Error name
+        message:
+          type: string
+          description: Error message
+        path:
+          type: string
+          description: Error path
     CreateTermsRequest:
       type: object
       required:
