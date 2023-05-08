@@ -9,6 +9,7 @@ class TermsTest : ShouldSpec({
     context("Terms") {
         should("be created") {
             val terms = Terms(
+                type = "type",
                 title = "title",
                 content = "content"
             )
@@ -17,10 +18,23 @@ class TermsTest : ShouldSpec({
             terms.content shouldBe "content"
         }
 
+        context("type") {
+            should("not be blank") {
+                shouldThrow<IllegalArgumentException> {
+                    Terms(
+                        type = "",
+                        title = "title",
+                        content = "content"
+                    )
+                }
+            }
+        }
+
         context("title") {
             should("not be blank") {
                 shouldThrow<IllegalArgumentException> {
                     Terms(
+                        type = "type",
                         title = "",
                         content = "content"
                     )
@@ -32,6 +46,7 @@ class TermsTest : ShouldSpec({
             should("not be blank") {
                 shouldThrow<IllegalArgumentException> {
                     Terms(
+                        type = "type",
                         title = "title",
                         content = ""
                     )
@@ -42,6 +57,7 @@ class TermsTest : ShouldSpec({
         context("update") {
             should("update title") {
                 val terms = Terms(
+                    type = "type",
                     title = "title",
                     content = "content"
                 )
@@ -53,6 +69,7 @@ class TermsTest : ShouldSpec({
 
             should("update content") {
                 val terms = Terms(
+                    type = "type",
                     title = "title",
                     content = "content"
                 )
@@ -64,6 +81,7 @@ class TermsTest : ShouldSpec({
 
             should("not update title if blank") {
                 val terms = Terms(
+                    type = "type",
                     title = "title",
                     content = "content"
                 )
@@ -75,6 +93,7 @@ class TermsTest : ShouldSpec({
 
             should("not update content if blank") {
                 val terms = Terms(
+                    type = "type",
                     title = "title",
                     content = "content"
                 )

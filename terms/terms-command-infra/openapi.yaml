@@ -23,6 +23,31 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TermsResponse'
+  /terms/{type}:
+    patch:
+      summary: Update Terms
+      description: Update Terms
+      tags:
+        - TermsCommand
+      parameters:
+        - name: type
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTermsRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TermsResponse'
 
 components:
   schemas:
@@ -32,6 +57,9 @@ components:
         termsId:
           type: string
           description: Terms Id
+        type:
+          type: string
+          description: Terms type
         title:
           type: string
           description: Terms title
@@ -39,6 +67,22 @@ components:
           type: string
           description: Terms content
     CreateTermsRequest:
+      type: object
+      required:
+        - type
+        - title
+        - content
+      properties:
+        type:
+          type: string
+          description: Terms type
+        title:
+          type: string
+          description: Terms title
+        content:
+          type: string
+          description: Terms content
+    UpdateTermsRequest:
       type: object
       required:
         - title

@@ -5,7 +5,6 @@ import com.microecommerce.terms.command.DeleteTermsCommand
 import com.microecommerce.terms.command.UpdateTermsCommand
 import com.microecommerce.terms.entity.Terms
 import com.microecommerce.terms.repository.TermsCommandRepository
-import com.microecommerce.terms.vo.TermsId
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.ShouldSpec
 import io.kotest.matchers.shouldBe
@@ -27,6 +26,7 @@ class TermsCommandApplicationServiceTest : ShouldSpec({
         clearAllMocks()
 
         terms = Terms(
+            type = "type",
             title = "title",
             content = "content"
         )
@@ -35,6 +35,7 @@ class TermsCommandApplicationServiceTest : ShouldSpec({
     context("createTerms") {
         should("create terms") {
             val command = CreateTermsCommand(
+                type = "type",
                 title = "title",
                 content = "content"
             )
@@ -43,13 +44,27 @@ class TermsCommandApplicationServiceTest : ShouldSpec({
             val createdTerms = sut.createTerms(command)
 
             with(createdTerms) {
+                type shouldBe "type"
                 title shouldBe "title"
                 content shouldBe "content"
             }
         }
 
+        should("throw when type is blank") {
+            val command = CreateTermsCommand(
+                type = "",
+                title = "title",
+                content = "content"
+            )
+
+            shouldThrow<IllegalArgumentException> {
+                sut.createTerms(command)
+            }
+        }
+
         should("throw when title is blank") {
             val command = CreateTermsCommand(
+                type = "type",
                 title = "",
                 content = "content"
             )
@@ -61,6 +76,7 @@ class TermsCommandApplicationServiceTest : ShouldSpec({
 
         should("throw when content is blank") {
             val command = CreateTermsCommand(
+                type = "type",
                 title = "title",
                 content = ""
             )
@@ -74,10 +90,10 @@ class TermsCommandApplicationServiceTest : ShouldSpec({
     context("updateTerms") {
         should("update title") {
             val command = UpdateTermsCommand(
-                termsId = terms.termsId,
+                type = "type",
                 title = "updated title"
             )
-            every { termsCommandRepository.findByTermsId(terms.termsId) } returns terms
+            every { termsCommandRepository.findByType(terms.type) } returns terms
             every { termsCommandRepository.save(any()) } returnsArgument 0
 
             val updatedTerms = sut.updateTerms(command)
@@ -90,10 +106,10 @@ class TermsCommandApplicationServiceTest : ShouldSpec({
 
         should("update content") {
             val command = UpdateTermsCommand(
-                termsId = terms.termsId,
+                type = "type",
                 content = "updated content"
             )
-            every { termsCommandRepository.findByTermsId(terms.termsId) } returns terms
+            every { termsCommandRepository.findByType(terms.type) } returns terms
             every { termsCommandRepository.save(any()) } returnsArgument 0
 
             val updatedTerms = sut.updateTerms(command)
@@ -106,11 +122,11 @@ class TermsCommandApplicationServiceTest : ShouldSpec({
 
         should("throw when terms not found") {
             val command = UpdateTermsCommand(
-                termsId = TermsId(),
+                type = "type",
                 title = "updated title",
                 content = "updated content"
             )
-            every { termsCommandRepository.findByTermsId(command.termsId) } returns null
+            every { termsCommandRepository.findByType(terms.type) } returns null
 
             shouldThrow<IllegalArgumentException> {
                 sut.updateTerms(command)
@@ -119,11 +135,11 @@ class TermsCommandApplicationServiceTest : ShouldSpec({
 
         should("throw when title is blank") {
             val command = UpdateTermsCommand(
-                termsId = terms.termsId,
+                type = "type",
                 title = "",
                 content = "updated content"
             )
-            every { termsCommandRepository.findByTermsId(terms.termsId) } returns terms
+            every { termsCommandRepository.findByType(terms.type) } returns terms
 
             shouldThrow<IllegalArgumentException> {
                 sut.updateTerms(command)
@@ -132,11 +148,11 @@ class TermsCommandApplicationServiceTest : ShouldSpec({
 
         should("throw when content is blank") {
             val command = UpdateTermsCommand(
-                termsId = terms.termsId,
+                type = "type",
                 title = "updated title",
                 content = ""
             )
-            every { termsCommandRepository.findByTermsId(terms.termsId) } returns terms
+            every { termsCommandRepository.findByType(terms.type) } returns terms
 
             shouldThrow<IllegalArgumentException> {
                 sut.updateTerms(command)

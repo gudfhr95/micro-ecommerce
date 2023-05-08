@@ -5,7 +5,6 @@ import com.microecommerce.terms.command.DeleteTermsCommand
 import com.microecommerce.terms.command.UpdateTermsCommand
 import com.microecommerce.terms.entity.Terms
 import com.microecommerce.terms.repository.TermsCommandRepository
-import jakarta.validation.Valid
 import org.springframework.stereotype.Service
 
 @Service
@@ -13,11 +12,9 @@ class TermsCommandApplicationService(
     private val termsCommandRepository: TermsCommandRepository
 ) {
 
-    fun createTerms(
-        @Valid
-        command: CreateTermsCommand
-    ): Terms {
+    fun createTerms(command: CreateTermsCommand): Terms {
         val terms = Terms(
+            type = command.type,
             title = command.title,
             content = command.content
         )
@@ -25,11 +22,8 @@ class TermsCommandApplicationService(
         return termsCommandRepository.save(terms)
     }
 
-    fun updateTerms(
-        @Valid
-        command: UpdateTermsCommand
-    ): Terms {
-        val terms = termsCommandRepository.findByTermsId(command.termsId)
+    fun updateTerms(command: UpdateTermsCommand): Terms {
+        val terms = termsCommandRepository.findByType(command.type)
             ?: throw IllegalArgumentException("Terms not found")
 
         terms.update(
@@ -40,9 +34,7 @@ class TermsCommandApplicationService(
         return termsCommandRepository.save(terms)
     }
 
-    fun deleteTerms(
-        command: DeleteTermsCommand
-    ) {
+    fun deleteTerms(command: DeleteTermsCommand) {
         termsCommandRepository.deleteByTermsId(command.termsId)
     }
 }
