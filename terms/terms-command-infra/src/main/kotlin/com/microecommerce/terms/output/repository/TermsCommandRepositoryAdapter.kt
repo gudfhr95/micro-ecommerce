@@ -19,17 +19,17 @@ class TermsCommandRepositoryAdapter(
     }
 
     override fun findByType(type: String): Terms? {
-        val termsDao = termsCommandJpaRepository.findByType(type)
+        val termsDao = termsCommandJpaRepository.findByTypeAndIsDeletedFalse(type)
 
         return termsDao?.let { TermsDaoMapper.toEntity(it) }
     }
 
     override fun existsByType(type: String): Boolean {
-        return termsCommandJpaRepository.existsByType(type)
+        return termsCommandJpaRepository.existsByTypeAndIsDeletedFalse(type)
     }
 
     override fun deleteByType(type: String) {
-        val termsDao = termsCommandJpaRepository.findByType(type)
+        val termsDao = termsCommandJpaRepository.findByTypeAndIsDeletedFalse(type)
 
         termsDao?.run {
             this.delete()

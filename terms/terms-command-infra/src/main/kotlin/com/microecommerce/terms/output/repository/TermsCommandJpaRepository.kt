@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository
 
 interface TermsCommandJpaRepository : JpaRepository<TermsDao, Long> {
 
-    fun findByType(type: String): TermsDao?
+    fun findByTypeAndIsDeletedFalse(type: String): TermsDao?
 
-    fun existsByType(type: String): Boolean
+    fun existsByTypeAndIsDeletedFalse(type: String): Boolean
 }
