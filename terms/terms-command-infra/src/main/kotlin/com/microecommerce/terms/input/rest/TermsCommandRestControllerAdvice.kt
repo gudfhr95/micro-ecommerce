@@ -11,6 +11,22 @@ import java.time.ZonedDateTime
 @ControllerAdvice
 class TermsCommandRestControllerAdvice {
 
+    @ExceptionHandler(IllegalArgumentException::class)
+    fun handleIllegalArgumentException(
+        request: HttpServletRequest,
+        exception: IllegalArgumentException
+    ): ResponseEntity<ErrorResponse> {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+            ErrorResponse(
+                timestamp = ZonedDateTime.now().toOffsetDateTime(),
+                status = HttpStatus.NOT_FOUND.value(),
+                error = HttpStatus.NOT_FOUND.reasonPhrase,
+                message = exception.message ?: "Not Found",
+                path = request.servletPath
+            )
+        )
+    }
+
     @ExceptionHandler(IllegalStateException::class)
     fun handleIllegalStateException(
         request: HttpServletRequest,
