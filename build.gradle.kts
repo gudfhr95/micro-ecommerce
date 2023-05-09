@@ -9,7 +9,8 @@ plugins {
 
     id("org.springframework.boot") apply false
     id("io.spring.dependency-management") apply false
-    kotlin("plugin.spring") apply false
+    kotlin("plugin.spring")
+    kotlin("plugin.jpa") apply false
     id("org.openapi.generator")
 }
 
@@ -76,6 +77,14 @@ subprojects {
     }
 
     if (project.name.endsWith("core") || project.name.endsWith("domain")) {
+        apply(plugin = "kotlin-jpa")
+
+        allOpen {
+            annotation("jakarta.persistence.Entity")
+            annotation("jakarta.persistence.Embeddable")
+            annotation("jakarta.persistence.MappedSuperclass")
+        }
+
         tasks.named<Jar>("jar") {
             enabled = true
         }
@@ -90,6 +99,7 @@ subprojects {
     if (project.name.endsWith("infra")) {
         val springdocOpenapiVersion: String by project
 
+        apply(plugin = "kotlin-jpa")
         apply(plugin = "org.openapi.generator")
 
         sourceSets {

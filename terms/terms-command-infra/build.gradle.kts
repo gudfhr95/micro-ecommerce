@@ -6,7 +6,7 @@ val mysqlConnectorVersion: String by project
 dependencies {
     implementation(project(":terms:terms-command-application"))
 
-    implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     runtimeOnly("mysql:mysql-connector-java:$mysqlConnectorVersion")
 }
 

@@ -3,7 +3,6 @@ spring:
     url: jdbc:mysql://localhost:3306/terms
     username: dev
     password: password
-
-logging:
-  level:
-    org.springframework.jdbc.core: DEBUG
+  jpa:
+    hibernate:
+      ddl-auto: update

@@ -1,9 +1,9 @@
 package com.microecommerce.terms.output.repository
 
 import com.microecommerce.terms.output.repository.dao.TermsDao
-import org.springframework.data.repository.CrudRepository
+import org.springframework.data.jpa.repository.JpaRepository
 
-interface TermsCommandJdbcRepository : CrudRepository<TermsDao, Long> {
+interface TermsCommandJpaRepository : JpaRepository<TermsDao, Long> {
 
     fun findByType(type: String): TermsDao?
 
