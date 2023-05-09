@@ -7,11 +7,11 @@ import org.springframework.stereotype.Repository
 
 @Repository
 class TermsCommandRepositoryAdapter(
-    private val termsCommandJdbcRepository: TermsCommandJdbcRepository
+    private val termsCommandJpaRepository: TermsCommandJpaRepository
 ) : TermsCommandRepository {
 
     override fun save(terms: Terms): Terms {
-        val termsDao = termsCommandJdbcRepository.save(
+        val termsDao = termsCommandJpaRepository.save(
             TermsDaoMapper.fromEntity(terms)
         )
 
@@ -19,21 +19,21 @@ class TermsCommandRepositoryAdapter(
     }
 
     override fun findByType(type: String): Terms? {
-        val termsDao = termsCommandJdbcRepository.findByType(type)
+        val termsDao = termsCommandJpaRepository.findByType(type)
 
         return termsDao?.let { TermsDaoMapper.toEntity(it) }
     }
 
     override fun existsByType(type: String): Boolean {
-        return termsCommandJdbcRepository.existsByType(type)
+        return termsCommandJpaRepository.existsByType(type)
     }
 
     override fun deleteByType(type: String) {
-        val termsDao = termsCommandJdbcRepository.findByType(type)
+        val termsDao = termsCommandJpaRepository.findByType(type)
 
         termsDao?.run {
             this.delete()
-            termsCommandJdbcRepository.save(this)
+            termsCommandJpaRepository.save(this)
         }
     }
 }
