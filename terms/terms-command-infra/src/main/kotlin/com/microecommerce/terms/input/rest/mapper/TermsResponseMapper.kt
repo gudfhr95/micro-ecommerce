@@ -9,6 +9,7 @@ object TermsResponseMapper {
         termsId = terms.termsId.id,
         type = terms.type,
         title = terms.title,
-        content = terms.content
+        content = terms.content,
+        version = terms.version.toBigDecimal()
     )
 }

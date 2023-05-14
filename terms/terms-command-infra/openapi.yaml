@@ -87,6 +87,9 @@ components:
         content:
           type: string
           description: Terms content
+        version:
+          type: number
+          description: Terms version
     ErrorResponse:
       type: object
       properties:

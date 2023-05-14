@@ -8,11 +8,11 @@ object TermsDaoMapper {
 
     fun toEntity(termsDao: TermsDao) = Terms(
         id = termsDao.id,
-        version = termsDao.version,
         termsId = TermsId(termsDao.termsId),
         type = termsDao.type,
         title = termsDao.title,
         content = termsDao.content,
+        version = termsDao.version,
         createdAt = termsDao.createdAt,
         createdBy = termsDao.createdBy,
         updatedAt = termsDao.updatedAt,
@@ -21,11 +21,11 @@ object TermsDaoMapper {
 
     fun fromEntity(terms: Terms) = TermsDao(
         id = terms.id,
-        version = terms.version,
         termsId = terms.termsId.id,
         type = terms.type,
         title = terms.title,
         content = terms.content,
+        version = terms.version,
         createdAt = terms.createdAt,
         createdBy = terms.createdBy,
         updatedAt = terms.updatedAt,

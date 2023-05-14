@@ -12,26 +12,19 @@ open class AbstractEntity(
     updatedBy: String? = null
 ) {
 
-    var id: Long? = id
-        private set
+    val id: Long? = id
 
-    var version: Long = version ?: 0
-        private set
+    val version: Long = version ?: 0
 
-    var isDeleted: Boolean = isDeleted ?: false
-        private set
+    val isDeleted: Boolean = isDeleted ?: false
 
-    var createdAt: LocalDateTime = createdAt ?: LocalDateTime.now()
-        private set
+    val createdAt: LocalDateTime = createdAt ?: LocalDateTime.now()
 
-    var createdBy: String = createdBy ?: "system"
-        private set
+    val createdBy: String = createdBy ?: "system"
 
-    var updatedAt: LocalDateTime = updatedAt ?: LocalDateTime.now()
-        private set
+    val updatedAt: LocalDateTime = updatedAt ?: LocalDateTime.now()
 
-    var updatedBy: String = updatedBy ?: "system"
-        private set
+    val updatedBy: String = updatedBy ?: "system"
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
