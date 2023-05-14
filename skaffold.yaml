@@ -37,7 +37,7 @@ deploy:
         chartPath: k8s/infra/mysql
         valuesFiles:
           - k8s/infra/mysql/values.yaml
-        version: 9.8.2
+        version: 9.9.1
       - name: httpbin
         chartPath: k8s/app/httpbin
         version: 1.0.0
