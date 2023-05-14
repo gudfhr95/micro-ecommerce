@@ -8,7 +8,7 @@ plugins {
     id("jacoco")
 
     id("org.springframework.boot") apply false
-    id("io.spring.dependency-management") apply false
+    id("io.spring.dependency-management")
     kotlin("plugin.spring")
     kotlin("plugin.jpa") apply false
     id("org.openapi.generator")
@@ -98,9 +98,17 @@ subprojects {
 
     if (project.name.endsWith("infra")) {
         val springdocOpenapiVersion: String by project
+        val testContainersVersion: String by project
+        val kotestExtensionsSpringVersion: String by project
 
         apply(plugin = "kotlin-jpa")
         apply(plugin = "org.openapi.generator")
+
+        dependencyManagement {
+            imports {
+                mavenBom("org.testcontainers:testcontainers-bom:$testContainersVersion")
+            }
+        }
 
         sourceSets {
             main {
@@ -114,6 +122,12 @@ subprojects {
             implementation("org.springframework.boot:spring-boot-starter-validation")
             implementation("org.springframework.boot:spring-boot-starter-web")
             implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:$springdocOpenapiVersion")
+
+            testImplementation("org.springframework.boot:spring-boot-starter-webflux")
+            testImplementation("org.springframework.boot:spring-boot-starter-test")
+            testImplementation("io.kotest.extensions:kotest-extensions-spring:$kotestExtensionsSpringVersion")
+            testImplementation("org.testcontainers:junit-jupiter")
+            testImplementation("org.testcontainers:mysql")
         }
 
         openApiGenerate {
