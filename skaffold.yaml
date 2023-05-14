@@ -30,7 +30,7 @@ deploy:
         chartPath: k8s/infra/keycloak
         valuesFiles:
           - k8s/infra/keycloak/values.yaml
-        version: 14.4.1
+        version: 15.1.1
       - name: mysql
         namespace: mysql
         createNamespace: true
