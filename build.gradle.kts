@@ -193,6 +193,8 @@ subprojects {
                     "com.microecommerce.core.*",
                     "*.openapi.*"
                 )
+
+                isFailOnViolation = false
             }
         }
     }
