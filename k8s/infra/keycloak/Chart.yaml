@@ -7,4 +7,4 @@ dependencies:
     repository: https://charts.bitnami.com/bitnami
     version: 15.1.1
 name: keycloak
-version: 14.4.1
+version: 15.1.1
