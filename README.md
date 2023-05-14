@@ -156,7 +156,7 @@ See [deployment](#deployment) for notes on how to deploy the project on a live s
     Cert-Manager has a dependency on CRDs that need to be installed onto a Kubernetes cluster before Cert-Manager itself can be installed.
 
     ```bash
-    kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.11.1/cert-manager.crds.yaml
+    kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.11.2/cert-manager.crds.yaml
     ```
 
 5. Run **Skaffold**
