@@ -4,6 +4,7 @@ import com.microecommerce.terms.entity.Terms
 import com.microecommerce.terms.vo.TermsId
 import io.kotest.core.spec.style.ShouldSpec
 import io.kotest.matchers.shouldBe
+import java.math.BigDecimal
 
 class TermsResponseMapperTest : ShouldSpec({
 
@@ -12,7 +13,8 @@ class TermsResponseMapperTest : ShouldSpec({
             termsId = TermsId("1"),
             type = "type",
             title = "title",
-            content = "content"
+            content = "content",
+            version = 1L
         )
 
         val response = TermsResponseMapper.fromEntity(terms)
@@ -21,5 +23,6 @@ class TermsResponseMapperTest : ShouldSpec({
         response.type shouldBe "type"
         response.title shouldBe "title"
         response.content shouldBe "content"
+        response.version shouldBe BigDecimal.ONE
     }
 })
