@@ -731,9 +731,13 @@ style:
   UnusedPrivateMember:
     active: true
     allowedNames: ''
+    ignoreAnnotated:
+      - 'org.testcontainers.junit.jupiter.Container'
   UnusedPrivateProperty:
     active: true
     allowedNames: '_|ignored|expected|serialVersionUID'
+    ignoreAnnotated:
+      - 'org.testcontainers.junit.jupiter.Container'
   UseAnyOrNoneInsteadOfFind:
     active: true
   UseArrayLiteralsInAnnotations:
