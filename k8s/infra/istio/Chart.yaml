@@ -6,6 +6,6 @@ dependencies:
   version: 1.17.2
 - name: istiod
   repository: https://istio-release.storage.googleapis.com/charts
-  version: 1.17.2
+  version: 1.19.0
 name: istio
 version: 1.17.2
