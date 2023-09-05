@@ -3,6 +3,6 @@ appVersion: 1.17.2
 dependencies:
 - name: gateway
   repository: https://istio-release.storage.googleapis.com/charts
-  version: 1.17.2
+  version: 1.19.0
 name: istio-ingressgateway
 version: 1.17.2
